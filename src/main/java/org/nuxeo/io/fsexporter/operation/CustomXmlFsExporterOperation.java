@@ -35,7 +35,7 @@ import org.nuxeo.io.fsexporter.CustomXmlFsExporterWork;
 import org.nuxeo.runtime.api.Framework;
 
 /**
- * 
+ *
  */
 @Operation(id=CustomXmlFsExporterOperation.ID, category=Constants.CAT_SERVICES, label="Custom Xml Fs Exporter", description="")
 public class CustomXmlFsExporterOperation {
@@ -50,7 +50,7 @@ public class CustomXmlFsExporterOperation {
     @Param(name = "pageSize", description = "Page Size (default: 100)", required = false)
     protected Integer pageSize = 100;
 
-    @Param(name = "batchMode", description = "Btach mode", required = false)
+    @Param(name = "batchMode", description = "Batch mode", required = false)
     protected Boolean batchMode = false;
 
     @Context
@@ -69,7 +69,7 @@ public class CustomXmlFsExporterOperation {
         } else {
             LOGGER.error("insufficient rights to launch export");
         }
-        return input; 
-    }    
+        return input;
+    }
 
 }
