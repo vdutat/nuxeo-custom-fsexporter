@@ -161,6 +161,7 @@ public class CustomXmlFsExporterWork extends AbstractWork {
                      .set("from", Scripting.newExpression("Env[\"mail.from\"]"))
                      .set("to", Framework.getLocalService(UserManager.class).getPrincipal(toUserName).getEmail())
                      .set("HTML", isHtml)
+                     .set("rollbackOnError" , false)
                      .set("subject", subject)
                      .set("message", body);
                 Framework.getLocalService(AutomationService.class).run(ctx, chain);
