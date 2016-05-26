@@ -15,6 +15,7 @@ Operation `CustomXmlFsExporter` accepts the following parameters:
 - `targetFolderFullPath`: full path of folder on server's file system where the ZIP file will be created
 - `pageSize`: number of documents retrieved per page (optional, default: 100)
 - `batchMode`: enables batch mode. Transactions will be committed every `pageSize` processed documents (optional, default: false)
+
 An email is sent to the initiator user when the export is finished.
 
 ## Build
@@ -23,7 +24,8 @@ An email is sent to the initiator user when the export is finished.
  
 ## Deploy (how to install build product)
  
-Copy generated JAR file in `$NUXEO_HOME/nxserver/bundles/` or `$NUXEO_HOME/nxserver/plugins`
+* Copy generated JAR file in `$NUXEO_HOME/nxserver/bundles/` or `$NUXEO_HOME/nxserver/plugins
+* Restart Nuxeo Platform
 
 # About Nuxeo
  
