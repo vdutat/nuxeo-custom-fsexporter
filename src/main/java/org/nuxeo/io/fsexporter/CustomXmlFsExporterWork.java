@@ -80,9 +80,11 @@ public class CustomXmlFsExporterWork extends AbstractWork {
         DocumentWriter writer = null;
         initSession();
         DocumentModel doc = session.getDocument(new IdRef(docId));
-        File file = File.createTempFile(doc.getName() + "-", ".zip");
-        File toFile = new File(targetFsFolder + File.separator + file.getName());
+        String absolutePath = null;
         try {
+            File file = File.createTempFile(doc.getName() + "-", ".zip");
+            File toFile = new File(targetFsFolder + File.separator + file.getName());
+            absolutePath = toFile.getAbsolutePath();
             Framework.trackFile(file, file);
             setStatus("Temp file created");
             reader = new DocumentTreeReader(session, doc);
@@ -120,7 +122,7 @@ public class CustomXmlFsExporterWork extends AbstractWork {
             if (writer != null) {
                 writer.close();
             }
-            new AutomationMail(doc, initiator, getTitle() + " '" + getId() + "' - " + getStatus(), "ZIP file " + toFile.getAbsolutePath() + " created.").send();
+            new AutomationMail(doc, initiator, getTitle() + " '" + getId() + "' - " + getStatus(), "ZIP file " + absolutePath + " created.").send();
         }
     }
 
